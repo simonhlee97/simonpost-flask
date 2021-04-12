@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	color: #222;
+    font-size: 10pt;
+}
+.body-content {
+	min-height: 60vh;
+	padding: 4px 4.0em;
+}
+
+
+p {
+	color: #555;
+	letter-spacing: 1.05px;
+    margin-bottom: 1rem;
+}
+
+.form-wrapper {
+    padding: 4em;
+}
+
+.invalid-feedback{
+    color:#340D09;
+    padding: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #FFDEDB;
+    border-radius: 3px;
+    letter-spacing: 2px;
+    font-size: 8pt;
+}
+.profile-pic{
+    border-radius: 50%;
+    height: auto;
+    width: 82px;
+}
+.post-content-post {
+    padding-top: 2.5em;
+}
+.post-metadata{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 28px 0;
+}
+.post-metadata > img {
+    margin-right: 25px;
+    margin-left: 25px;
+}
+.post-title-post{
+    font-weight: bolder;
+    letter-spacing: 2.5px;
+    font-size: 48pt;
+    margin: 1px 0;
+    font-family: Impact, Haettenschweiler, 'Arial Bold';
+}
+.post-title-home{
+    color: #272525;
+    text-decoration: none;
+    font-size: 35pt;
+    letter-spacing: 2.5px;
+    font-family: Impact, Haettenschweiler, sans-serif;
+}
+.post-title-home:hover{
+    text-decoration: underline;
+    color: #000000;
+}
+
+
+.paginate-btn {
+    color:#0d2777;
+    background-color: #d6d0d0;
+    padding: 4px 18px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+.update-del-btns {
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+
+@media only screen and (max-width: 680px) {
+    .nav .container {
+        flex-direction: column;
+    }
+    .body-content {
+        margin-top: 5em;
+    }
+    .nav ul {
+        padding-top:0;
+    }
+}
+@media only screen and (min-width: 680px) {
+    .body-content {
+        padding-left: 12vw;
+        padding-right: 12vw;
+    }
+}

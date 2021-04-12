@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block body %}
+    {% for post in posts.items %}
+        <article class="post">
+            <div class="title">
+                <h2><a class="post-title-home" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            </div>
+
+            <div class="excerpt">
+                <div class="post-content">{% filter markdown %}{{post.pagedowncontent|truncate(275, true) }}{% endfilter %}
+                </div>
+            </div>
+
+            <div class="author">
+                
+                <p>By: <span style='text-transform: uppercase;'>Simon Lee {{ post.author.username }}</span></p>
+                <p style='color:#ada8a8ec;'>{{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+                  
+            </div>
+            
+
+            <hr>
+        </article>
+    {% endfor %}
+
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1) %}
+        {% if page_num %} 
+            {% if posts.page == page_num %}
+            <a class='paginate-btn' href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+        {% else %} 
+            <a class="paginate-btn" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+        {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+
+{% endblock body %}

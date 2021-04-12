@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div>
+    <h1>Create Post</h1>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="twelve columns">
+                <div class="form-group">
+                    {{ form.title.label(class="form-control-label") }}
+                    {% if form.title.errors %}
+                        {{ form.title(class="u-full-width is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="u-full-width") }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <div class="form-group">
+                    {{ form.pagedowncontent.label() }}
+                    {% if form.pagedowncontent.errors %}
+                        {{ form.pagedowncontent(class="u-full-width is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.pagedowncontent.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.pagedowncontent(class="u-full-width") }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                {{ form.submit(class="button") }}
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

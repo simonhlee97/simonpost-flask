@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    .invalid-feedback{
+        color:#340D09;
+        padding: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+        background-color: #FFDEDB;
+        border-radius: 3px;
+        letter-spacing: 2px;
+        font-size: 8pt;
+    }
+    .danger {
+        color:#340D09;
+        padding: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+        background-color: #FFDEDB;
+        border-radius: 3px;
+        letter-spacing: 2px;
+        font-size: 8pt;
+    }
+</style>
+<div class='form-wrapper'>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="six columns">
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="u-full-width") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="six columns">
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="u-full-width is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="u-full-width") }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                {{ form.submit(class="button-primary") }}
+            </div>
+            
+        </div>
+    </form>
+</div>
+{% endblock %}

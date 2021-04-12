@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+    <article class="single-post content-section">
+        <div class="post-body">
+            <div>
+                <h2 class="post-title-post">{{ post.title }}</h2>
+                <div class="post-metadata">
+                    <small>By: <a class="mr-2" href="#">{{ post.author.username }}</a></small>
+                    <img class="profile-pic" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+                    <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+                </div>
+                {% if post.author == current_user %}
+                <div class='update-del-btns'>
+                    <a  href="{{ url_for('posts.update_post', post_id=post.id) }}"><button class="button-primary">Update</button></a>
+                    <br>
+                    <form action="{{ url_for('posts.delete_post', post_id=post.id) }}" method="POST">
+                        <input class="button" type="submit" value="Delete">
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        
+            <div class="post-content-post">{% filter markdown %}{{ post.pagedowncontent }}{% endfilter %}</div>
+        </div>
+    </article>
+
+
+
+{% endblock body %}
