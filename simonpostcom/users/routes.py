@@ -8,7 +8,7 @@ from simonpostcom.users.utils import save_picture
 users = Blueprint('users', __name__)
 
 
-@users.route("/onlysimonregister", methods=['GET', 'POST'])
+@users.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('main.home'))
@@ -23,7 +23,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@users.route("/onlysimonlogin", methods=['GET', 'POST'])
+@users.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('main.home'))
