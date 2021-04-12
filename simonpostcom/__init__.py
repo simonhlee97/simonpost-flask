@@ -31,8 +31,12 @@ def create_app(config_class=Config):
     from simonpostcom.users.routes import users
     from simonpostcom.posts.routes import posts
     from simonpostcom.main.routes import main
+    from simonpostcom.errors.handlers import errors
+
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
+    app.register_blueprint(errors)
+    
 
     return app
