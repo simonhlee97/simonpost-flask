@@ -73,6 +73,14 @@ p {
     text-decoration: underline;
     color: #000000;
 }
+.error-handlers{
+    letter-spacing: 5px;
+    font-size: 37pt;
+    color:#c33c33;
+}
+.single-post-page{
+    margin-bottom: 3em;
+}
 
 
 .paginate-btn {
